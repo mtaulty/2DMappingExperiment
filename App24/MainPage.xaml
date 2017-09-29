@@ -1,0 +1,96 @@
+﻿<Page x:Class="App24.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:App24"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SwapChainPanel x:Name="swapChainPanel"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch" />
+        <StackPanel Margin="0,5,5,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Orientation="Vertical"
+                    Background="#AAFFFFFF">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize"
+                            Value="14" />
+                    <Setter Property="HorizontalAlignment"
+                            Value="Right" />
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock><Run Text="Added Surfaces " /><Run Text="{x:Bind SurfaceMetrics.AddedCount,Mode=OneWay}" /></TextBlock>
+            <TextBlock><Run Text="Updated Surfaces " /><Run Text="{x:Bind SurfaceMetrics.UpdatedCount,Mode=OneWay}" /></TextBlock>
+            <TextBlock><Run Text="Removed Surfaces " /><Run Text="{x:Bind SurfaceMetrics.RemovedCount,Mode=OneWay}" /></TextBlock>
+            <TextBlock><Run Text="Current Surfaces " /><Run Text="{x:Bind SurfaceMetrics.CurrentCount,Mode=OneWay}" /></TextBlock>
+        </StackPanel>
+        <Grid HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Background="#AAFFFFFF">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button Click="OnForward"
+                    Grid.Column="1">
+                <SymbolIcon Symbol="Up" />
+            </Button>
+            <Button Click="OnBack"
+                    Grid.Row="2"
+                    Grid.Column="1">
+                <SymbolIcon Symbol="Up"
+                            RenderTransformOrigin="0.5,0.5">
+                    <SymbolIcon.RenderTransform>
+                        <RotateTransform Angle="180" />
+                    </SymbolIcon.RenderTransform>
+                </SymbolIcon>
+            </Button>
+            <Button Click="OnLeft"
+                    Grid.Row="1">
+                <SymbolIcon Symbol="Up"
+                            RenderTransformOrigin="0.5,0.5">
+                    <SymbolIcon.RenderTransform>
+                        <RotateTransform Angle="270" />
+                    </SymbolIcon.RenderTransform>
+                </SymbolIcon>
+            </Button>
+            <Button Click="OnRight"
+                    Grid.Column="2"
+                    Grid.Row="1">
+                <SymbolIcon Symbol="Up"
+                            RenderTransformOrigin="0.5,0.5">
+                    <SymbolIcon.RenderTransform>
+                        <RotateTransform Angle="90" />
+                    </SymbolIcon.RenderTransform>
+                </SymbolIcon>
+            </Button>
+            <Button Click="OnUp">
+                <SymbolIcon Symbol="Rotate"
+                            RenderTransformOrigin="0.5,0.5">
+                    <SymbolIcon.RenderTransform>
+                        <RotateTransform Angle="0" />
+                    </SymbolIcon.RenderTransform>
+                </SymbolIcon>
+            </Button>
+            <Button Click="OnDown" Grid.Row="2" Grid.Column="2">
+                <SymbolIcon Symbol="Rotate"
+                            RenderTransformOrigin="0.5,0.5">
+                    <SymbolIcon.RenderTransform>
+                        <RotateTransform Angle="180" />
+                    </SymbolIcon.RenderTransform>
+                </SymbolIcon>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>
